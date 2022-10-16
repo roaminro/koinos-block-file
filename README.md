@@ -34,9 +34,24 @@ Process a block file using the local AMQP service:
 $ koinos_block_file --mode process --method amqp
 ```
 
-### Build:
+## Build:
+Build for Linux 64 bits:
 ```ssh
-go get ./...
-mkdir -p build
-go build -o build/koinos_block_file cmd/koinos-block-file/main.go
+$ go get ./...
+$ mkdir -p build/linux
+$ GOOS=linux GOARCH=amd64 go build -o build/linux/koinos_block_file cmd/koinos-block-file/main.go
+```
+
+Build for MacOS:
+```ssh
+$ go get ./...
+$ mkdir -p build/macos
+$ GOOS=darwin GOARCH=amd64 go build -o build/macos/koinos_block_file cmd/koinos-block-file/main.go
+```
+
+Build for Windows 64 bits:
+```ssh
+$ go get ./...
+$ mkdir -p build/windows
+$ GOOS=windows GOARCH=amd64 go build -o build/windows/koinos_block_file.exe cmd/koinos-block-file/main.go
 ```
