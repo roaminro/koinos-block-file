@@ -6,7 +6,7 @@ set -x
 if [[ -z $BUILD_DOCKER ]]; then
    go get ./...
    mkdir -p build
-   go build -o build/koinos_block_file cmd/koinos-block-file/main.go
+   go build -o build/koinos-block-file cmd/koinos-block-file/main.go
 else
    TAG="$TRAVIS_BRANCH"
    if [ "$TAG" = "master" ]; then

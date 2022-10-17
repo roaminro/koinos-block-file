@@ -7,7 +7,7 @@ A small utility tool to generate and process block files. A block file contains 
 (when processing a block file you will need to stop your p2p service)
 
 ```ssh
-koinos_block_file [FLAGS]
+koinos-block-file [FLAGS]
 ```
 
 Flags available:
@@ -26,12 +26,12 @@ Flags available:
 
 Generate a block file from the genesis block using the https://api.koinos.io JSON RPC:
 ```ssh
-koinos_block_file --rpc https://api.koinos.io --nb-blocks-per-call 1000
+koinos-block-file --rpc https://api.koinos.io --nb-blocks-per-call 1000
 ```
 
 Process a block file using the local AMQP service:
 ```ssh
-koinos_block_file --mode process --method amqp
+koinos-block-file --mode process --method amqp
 ```
 
 ## Build:
@@ -39,19 +39,19 @@ Build for Linux 64 bits:
 ```ssh
 go get ./...
 mkdir -p build/linux
-GOOS=linux GOARCH=amd64 go build -o build/linux/koinos_block_file cmd/koinos-block-file/main.go
+GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o build/linux/koinos-block-file cmd/koinos-block-file/main.go
 ```
 
 Build for MacOS:
 ```ssh
 go get ./...
 mkdir -p build/macos
-GOOS=darwin GOARCH=amd64 go build -o build/macos/koinos_block_file cmd/koinos-block-file/main.go
+GOOS=darwin GOARCH=amd64 CGO_ENABLED=0 go build -o build/macos/koinos-block-file cmd/koinos-block-file/main.go
 ```
 
 Build for Windows 64 bits:
 ```ssh
 go get ./...
 mkdir -p build/windows
-GOOS=windows GOARCH=amd64 go build -o build/windows/koinos_block_file.exe cmd/koinos-block-file/main.go
+GOOS=windows GOARCH=amd64 CGO_ENABLED=0 go build -o build/windows/koinos-block-file.exe cmd/koinos-block-file/main.go
 ```

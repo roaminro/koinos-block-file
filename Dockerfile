@@ -10,8 +10,8 @@ RUN apk update && \
         linux-headers
 
 RUN go get ./... && \
-    go build -o koinos_block_file cmd/koinos-block-file/main.go
+    go build -o koinos-block-file cmd/koinos-block-file/main.go
 
 FROM alpine:latest
-COPY --from=builder /koinos-block-file/koinos_block_file /usr/local/bin
-ENTRYPOINT [ "/usr/local/bin/koinos_block_file" ]
+COPY --from=builder /koinos-block-file/koinos-block-file /usr/local/bin
+ENTRYPOINT [ "/usr/local/bin/koinos-block-file" ]
